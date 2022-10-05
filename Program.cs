@@ -81,10 +81,12 @@ foreach (var item in lottozahlen)
 int match = 0;
 for ( i = 0; i < 6; i++)
     {
-     if (lottozahlen[i] == einZahlen[i])
+    bool hit = false;
+    hit = Array.Exists(einZahlen, ele => ele == lottozahlen[i]);
+    if (hit ==true)
         {
             match++;
-            Console.WriteLine($"\nDie Zahl {einZahlen[i]} wurde richtig getippt!");
+            Console.WriteLine($"\nDie Zahl {lottozahlen[i]} wurde richtig getippt!");
          }
 }
 Console.WriteLine($"\nDie Anzahl der Treffer ist {match}.\n");
